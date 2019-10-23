@@ -319,23 +319,6 @@ for i in range(10):
     predictions_train.append(a)
     predictions_test.append(b)
     
-    print ('Model XGBClassifier'+' '+str(i)+' '+'starts...')
-    modelxgb = XGBClassifier(n_estimators=est, seed=25)
-    modelxgb.fit(a, np.argmax(tr_y[i],axis=1))
-
-    test_predict = modelxgb.predict(b)
-    predictions_test_xg.append(test_predict)
-    true_class.append(te_y[i])
-    print (confusion_matrix(np.argmax(te_y[i],axis=1), test_predict))
-    print (f1_custom(np.argmax(te_y[i],axis=1), test_predict))
-    print (accuracy_cus(np.argmax(te_y[i],axis=1), test_predict))
-    cf_all.append(confusion_matrix(np.argmax(te_y[i],axis=1), test_predict))
-    f1_all.append(f1_custom(np.argmax(te_y[i],axis=1), test_predict)[4])
-    acc_all.append(accuracy_cus(np.argmax(te_y[i],axis=1), test_predict))
-    accuracy = accuracy_score(np.argmax(te_y[i],axis=1), test_predict)
-    print("Accuracy: %.2f%%" % (accuracy * 100.0))
-    acc.append(accuracy)
-    K.clear_session()
     
 #############thor######################
 
